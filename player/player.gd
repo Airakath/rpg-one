@@ -10,7 +10,7 @@ func _physics_process(delta: float) -> void:
 	player_movement()
 
 func player_movement() -> void:
-	velocity = Vector2.ZERO
+	velocity = Vector2(0,0)
 	var input_vector = Vector2(
 		int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")),
 		int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
