@@ -421,4 +421,4 @@ script = ExtResource("1_rkbax")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jfgyi")
 animation = &"front_walk"
-frame_progress = 0.130904
+frame_progress = 0.700333
