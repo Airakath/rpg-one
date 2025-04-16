@@ -96,3 +96,4 @@ tile_set = SubResource("TileSet_mmdvd")
 [node name="Player" parent="." instance=ExtResource("4_h5o24")]
 
 [node name="Enemy" parent="." instance=ExtResource("5_mmdvd")]
+position = Vector2(237, 115)
