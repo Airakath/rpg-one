@@ -16,6 +16,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	player_movement()
 	enemy_attack()
+	attack()
 	
 	if health <= 0:
 		player_is_alive = false #go back to menu or respond
@@ -101,6 +102,20 @@ func attack():
 		if direction == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("side_attack")
-			
-			
-	
+			$DealAttackTimer.start()
+		if direction == "left":
+			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("side_attack")
+			$DealAttackTimer.start()
+		if direction == "down":
+			$AnimatedSprite2D.play("front_attack")
+			$DealAttackTimer.start()
+		if direction == "up":
+			$AnimatedSprite2D.play("back_attack")
+			$DealAttackTimer.start()
+
+
+func _on_deal_attack_timer_timeout() -> void:
+	$DealAttackTimer.stop()
+	Global.player_current_attack = false
+	attack_is_in_progress = false

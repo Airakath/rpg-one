@@ -6,6 +6,7 @@ var player = null
 
 var health = 100
 var player_inattack_zone = false
+var can_take_damage = true
 
 func _physics_process(delta: float) -> void:
 	deal_with_damage()
@@ -43,7 +44,13 @@ func _on_ennemy_hit_box_body_exited(body: Node2D) -> void:
 
 func deal_with_damage():
 	if player_inattack_zone and Global.player_current_attack == true:
-		health = health - 20
-		print("slime health = ", health)
-		if health <= 0:
-			self.queue_free()
+		if can_take_damage == true:
+			health = health - 20
+			$TakeDamageCooldown.start()
+			can_take_damage = false
+			print("slime health = ", health)
+			if health <= 0:
+				self.queue_free()
+
+func _on_take_damage_cooldown_timeout() -> void:
+	can_take_damage = true
