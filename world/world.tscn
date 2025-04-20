@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=4 uid="uid://pomkii3oeuyq"]
+[gd_scene load_steps=15 format=4 uid="uid://pomkii3oeuyq"]
 
 [ext_resource type="Texture2D" uid="uid://cyi447eykji1w" path="res://world/plains.png" id="1_4717r"]
+[ext_resource type="Script" uid="uid://bvcufheeu7ii3" path="res://world/world.gd" id="1_fn3g3"]
 [ext_resource type="Texture2D" uid="uid://b6cdw4dnevuvf" path="res://world/grass.png" id="2_h5o24"]
 [ext_resource type="Texture2D" uid="uid://bqohls8h6qlmn" path="res://world/objects.png" id="3_mmdvd"]
 [ext_resource type="PackedScene" uid="uid://cemn5xknrhbc1" path="res://player/player.tscn" id="4_h5o24"]
@@ -76,8 +77,12 @@ texture = ExtResource("3_mmdvd")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_h5o24")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmdvd"]
+size = Vector2(78, 42)
+
 [node name="World" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_fn3g3")
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -103,3 +108,12 @@ position = Vector2(237, 115)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisions"]
 polygon = PackedVector2Array(1, -1, 323, -1, 323, -42, 401, -42, 402, 28, 407, 31, 433, 31, 435, 46, 440, 47, 575, 47, 575, 272, -1, 272, 0, -1, -16, -1, -15, 287, 596, 286, 593, -51, 426, -50, 1, -46)
+
+[node name="CliffsideTransistionPoint" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CliffsideTransistionPoint"]
+position = Vector2(362, -21)
+shape = SubResource("RectangleShape2D_mmdvd")
+
+[connection signal="body_entered" from="CliffsideTransistionPoint" to="." method="_on_cliffside_transistion_point_body_entered"]
+[connection signal="body_exited" from="CliffsideTransistionPoint" to="." method="_on_cliffside_transistion_point_body_exited"]
