@@ -463,6 +463,7 @@ drag_vertical_enabled = true
 
 [node name="CliffsideCamera" type="Camera2D" parent="."]
 scale = Vector2(112.69, -25.2164)
+zoom = Vector2(4, 4)
 
 [connection signal="body_entered" from="PlayerHitBox" to="." method="_on_player_hit_box_body_entered"]
 [connection signal="body_exited" from="PlayerHitBox" to="." method="_on_player_hit_box_body_exited"]

@@ -31,7 +31,7 @@ texture = ExtResource("2_h5o24")
 sources/0 = SubResource("TileSetAtlasSource_fn3g3")
 sources/1 = SubResource("TileSetAtlasSource_sc4t8")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4717r"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ai45w"]
 texture = ExtResource("1_4717r")
 1:4/0 = 0
 2:4/0 = 0
@@ -50,9 +50,9 @@ texture = ExtResource("1_4717r")
 5:6/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_h5o24"]
-sources/0 = SubResource("TileSetAtlasSource_4717r")
+sources/0 = SubResource("TileSetAtlasSource_ai45w")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h5o24"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4papg"]
 texture = ExtResource("3_mmdvd")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.1152, 8, 5.93534, 8, 8, 1.61873, -8, 1.61873)
@@ -75,7 +75,7 @@ texture = ExtResource("3_mmdvd")
 
 [sub_resource type="TileSet" id="TileSet_mmdvd"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_h5o24")
+sources/0 = SubResource("TileSetAtlasSource_4papg")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmdvd"]
 size = Vector2(78, 42)
@@ -115,5 +115,5 @@ polygon = PackedVector2Array(1, -1, 323, -1, 323, -42, 401, -42, 402, 28, 407, 3
 position = Vector2(362, -21)
 shape = SubResource("RectangleShape2D_mmdvd")
 
-[connection signal="body_entered" from="CliffsideTransistionPoint" to="." method="_on_cliffside_transistion_point_body_entered"]
-[connection signal="body_exited" from="CliffsideTransistionPoint" to="." method="_on_cliffside_transistion_point_body_exited"]
+[connection signal="body_entered" from="CliffsideTransistionPoint" to="." method="_on_cliffside_transition_point_body_entered"]
+[connection signal="body_exited" from="CliffsideTransistionPoint" to="." method="_on_cliffside_transition_point_body_exited"]
