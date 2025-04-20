@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 	enemy_attack()
 	attack()
 	current_camera()
+	update_health()
 	
 	if health <= 0:
 		player_is_alive = false #go back to menu or respond
@@ -128,3 +129,22 @@ func current_camera():
 	elif Global.current_scene == "cliff_side":
 		$WorldCamera.enabled = false
 		$CliffsideCamera.enabled = true
+
+
+func update_health():
+	var healthbar = $Healthbar
+	healthbar.value = health
+	
+	if health >= 100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
+
+func _on_regin_time_timeout() -> void:
+	if health < 100:
+		health = health + 20
+		if health > 100:
+			health = 100
+	if health <= 0:
+		health = 0
+		

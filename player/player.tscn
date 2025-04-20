@@ -465,7 +465,21 @@ drag_vertical_enabled = true
 scale = Vector2(112.69, -25.2164)
 zoom = Vector2(4, 4)
 
+[node name="Healthbar" type="ProgressBar" parent="."]
+modulate = Color(0.27451, 0.756863, 0.301961, 1)
+offset_left = -7.0
+offset_top = 10.0
+offset_right = 133.0
+offset_bottom = 30.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false
+
+[node name="ReginTime" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="body_entered" from="PlayerHitBox" to="." method="_on_player_hit_box_body_entered"]
 [connection signal="body_exited" from="PlayerHitBox" to="." method="_on_player_hit_box_body_exited"]
 [connection signal="timeout" from="AttackCoolDown" to="." method="_on_attack_cool_down_timeout"]
 [connection signal="timeout" from="DealAttackTimer" to="." method="_on_deal_attack_timer_timeout"]
+[connection signal="timeout" from="ReginTime" to="." method="_on_regin_time_timeout"]
